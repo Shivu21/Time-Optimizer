@@ -15,8 +15,8 @@ class _FocusTimerScreenState extends State<FocusTimerScreen> with SingleTickerPr
   late AnimationController _animationController;
   late Animation<double> _scaleAnimation;
   Timer? _timer;
-  int _workDuration = 25 * 60; // 25 minutes in seconds
-  int _breakDuration = 5 * 60; // 5 minutes in seconds
+  final int _workDuration = 25 * 60; // 25 minutes in seconds
+  final int _breakDuration = 5 * 60; // 5 minutes in seconds
   int _totalTime = 25 * 60;
   int _timeLeft = 25 * 60;
   bool _isRunning = false;
@@ -120,8 +120,8 @@ class _FocusTimerScreenState extends State<FocusTimerScreen> with SingleTickerPr
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              colorScheme.primaryContainer.withOpacity(0.3),
-              colorScheme.primaryContainer.withOpacity(0.1),
+              colorScheme.primaryContainer.withAlpha(77),
+              colorScheme.primaryContainer.withAlpha(26),
             ],
           ),
         ),

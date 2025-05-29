@@ -61,8 +61,8 @@ class _TasksScreenState extends State<TasksScreen> {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              colorScheme.tertiaryContainer.withOpacity(0.3),
-              colorScheme.tertiaryContainer.withOpacity(0.1),
+              colorScheme.tertiaryContainer.withAlpha(77),
+              colorScheme.tertiaryContainer.withAlpha(26),
             ],
           ),
         ),

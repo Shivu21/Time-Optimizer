@@ -77,8 +77,8 @@ class _HabitsScreenState extends State<HabitsScreen> {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              colorScheme.secondaryContainer.withOpacity(0.3),
-              colorScheme.secondaryContainer.withOpacity(0.1),
+              colorScheme.secondaryContainer.withAlpha(77),
+              colorScheme.secondaryContainer.withAlpha(26),
             ],
           ),
         ),

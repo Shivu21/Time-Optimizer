@@ -31,7 +31,7 @@ class MockAuthRepositoryImpl implements AuthRepository {
     }
     _currentUser = UserEntity(id: 'mock_user_id_signup', email: email, name: name ?? 'Mock User');
     _userController.add(_currentUser);
-    print('MockAuth: Signed up user: $_currentUser');
+    // print('MockAuth: Signed up user: $_currentUser');
   }
 
   @override
@@ -44,7 +44,7 @@ class MockAuthRepositoryImpl implements AuthRepository {
     if (email == 'user@example.com' && password == 'password') {
       _currentUser = const UserEntity(id: 'mock_user_id_login', email: 'user@example.com', name: 'Mock User');
       _userController.add(_currentUser);
-      print('MockAuth: Logged in user: $_currentUser');
+      // print('MockAuth: Logged in user: $_currentUser');
     } else {
       throw Exception('Invalid email or password.');
     }
@@ -56,14 +56,14 @@ class MockAuthRepositoryImpl implements AuthRepository {
     await Future.delayed(const Duration(milliseconds: 500));
     _currentUser = UserEntity.empty;
     _userController.add(_currentUser);
-    print('MockAuth: Logged out');
+    // print('MockAuth: Logged out');
   }
 
   @override
   Future<void> sendPasswordResetEmail({required String email}) async {
     // Simulate network delay
     await Future.delayed(const Duration(seconds: 1));
-    print('MockAuth: Password reset email sent to $email (simulated)');
+    // print('MockAuth: Password reset email sent to $email (simulated)');
     // In a real scenario, this would interact with a backend service.
   }
 

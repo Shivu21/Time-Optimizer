@@ -181,7 +181,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> with Single
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(AppTheme.mediumRadius),
-                      borderSide: BorderSide(color: colorScheme.outline.withOpacity(0.5)),
+                      borderSide: BorderSide(color: colorScheme.outline.withAlpha(128)),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(AppTheme.mediumRadius),

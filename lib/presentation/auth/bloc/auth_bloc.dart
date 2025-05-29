@@ -51,7 +51,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     } catch (e) {
       // Handle logout error, perhaps emit an error state
       // emit(state.copyWith(status: AuthStatus.error, error: e.toString()));
-      print('Error logging out: $e');
+      // print('Error logging out: $e');
     }
   }
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+
 import 'package:time_optimizer/core/di/service_locator.dart';
 import 'package:time_optimizer/core/theme/app_theme.dart';
 import 'package:time_optimizer/domain/auth/repositories/auth_repository.dart';
@@ -163,20 +163,16 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
         
         setState(() => _isLoading = false);
         
-        if (context.mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
+                  ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text('Signup successful! Please login.')),
           );
           Navigator.of(context).pop();
-        }
       } catch (e) {
         setState(() => _isLoading = false);
         
-        if (context.mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
+                  ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(e.toString())),
           );
-        }
       }
     }
   }
@@ -263,7 +259,7 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
                                 ),
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(AppTheme.mediumRadius),
-                                  borderSide: BorderSide(color: colorScheme.outline.withOpacity(0.5)),
+                                  borderSide: BorderSide(color: colorScheme.outline.withAlpha(128)),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(AppTheme.mediumRadius),
@@ -307,7 +303,7 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
                                 ),
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(AppTheme.mediumRadius),
-                                  borderSide: BorderSide(color: colorScheme.outline.withOpacity(0.5)),
+                                  borderSide: BorderSide(color: colorScheme.outline.withAlpha(128)),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(AppTheme.mediumRadius),
@@ -363,7 +359,7 @@ class _SignupScreenState extends State<SignupScreen> with SingleTickerProviderSt
                                 ),
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(AppTheme.mediumRadius),
-                                  borderSide: BorderSide(color: colorScheme.outline.withOpacity(0.5)),
+                                  borderSide: BorderSide(color: colorScheme.outline.withAlpha(128)),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(AppTheme.mediumRadius),

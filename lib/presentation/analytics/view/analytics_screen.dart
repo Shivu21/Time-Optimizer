@@ -32,8 +32,8 @@ class AnalyticsScreen extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              colorScheme.primaryContainer.withOpacity(0.3),
-              colorScheme.primaryContainer.withOpacity(0.1),
+              colorScheme.primaryContainer.withAlpha(77),
+              colorScheme.primaryContainer.withAlpha(26),
             ],
           ),
         ),
@@ -65,7 +65,7 @@ class AnalyticsScreen extends StatelessWidget {
                           painter: ProductivityChartPainter(
                             data: productivityData,
                             lineColor: colorScheme.primary,
-                            fillColor: colorScheme.primary.withOpacity(0.2),
+                            fillColor: colorScheme.primary.withAlpha(51),
                           ),
                           child: Container(),
                         ),
@@ -255,7 +255,7 @@ class ProductivityChartPainter extends CustomPainter {
 
     // Draw grid lines
     final Paint gridPaint = Paint()
-      ..color = Colors.grey.withOpacity(0.3)
+      ..color = Colors.grey.withAlpha(77)
       ..strokeWidth = 0.5;
 
     for (int i = 0; i < 5; i++) {
