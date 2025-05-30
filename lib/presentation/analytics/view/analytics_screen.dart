@@ -21,6 +21,12 @@ class AnalyticsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: colorScheme.onSurface),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
         title: const Text('Productivity Analytics'),
         elevation: 0,
         backgroundColor: colorScheme.surface,

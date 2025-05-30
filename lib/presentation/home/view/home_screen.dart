@@ -89,7 +89,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   return IconButton(
                     icon: CircleAvatar(
                       backgroundColor: colorScheme.primaryContainer,
-                      radius: 16,
                       child: user?.isNotEmpty == true
                           ? Text(
                               user!.email?.substring(0, 1).toUpperCase() ?? '?',
@@ -138,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                       progress: 0.0,
                       actionText: 'Start Focus',
                       onTap: () {
-                        context.go(FocusTimerScreen.routeName);
+                        context.push(FocusTimerScreen.routeName);
                       },
                     ),
                     
@@ -153,7 +152,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                       progress: _random.nextDouble() * 0.7 + 0.1,
                       actionText: 'View Tasks',
                       onTap: () {
-                        context.go(TasksScreen.routeName);
+                        context.push(TasksScreen.routeName);
                       },
                     ),
                     
@@ -168,7 +167,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                       progress: _random.nextDouble() * 0.5 + 0.3,
                       actionText: 'Track Habits',
                       onTap: () {
-                        context.go(HabitsScreen.routeName);
+                        context.push(HabitsScreen.routeName);
                       },
                     ),
                     
@@ -183,7 +182,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                       progress: 0.0,
                       actionText: 'View Stats',
                       onTap: () {
-                        context.go(AnalyticsScreen.routeName);
+                        context.push(AnalyticsScreen.routeName);
                       },
                     ),
                   ],
@@ -199,6 +198,20 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           setState(() {
             _selectedIndex = index;
           });
+          switch (index) {
+            case 0:
+              // Stay on home or refresh (no nav needed)
+              break;
+            case 1:
+              context.push(FocusTimerScreen.routeName);
+              break;
+            case 2:
+              context.push(TasksScreen.routeName);
+              break;
+            case 3:
+              context.push(AnalyticsScreen.routeName); // Assuming 'Stats' corresponds to Analytics
+              break;
+          }
         },
         destinations: const [
           NavigationDestination(
@@ -219,7 +232,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           NavigationDestination(
             icon: Icon(Icons.analytics_outlined),
             selectedIcon: Icon(Icons.analytics),
-            label: 'Stats',
+            label: 'Analytics', // Changed from 'Stats' to match screen name
           ),
         ],
       ),

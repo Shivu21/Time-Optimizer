@@ -1,6 +1,11 @@
 // import 'dart:async';
+import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:time_optimizer/core/routing/app_router.dart';
 import 'package:time_optimizer/core/theme/app_theme.dart';
+import 'package:time_optimizer/presentation/auth/bloc/auth_bloc.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -19,36 +24,21 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
   void initState() {
     super.initState();
     _controller = AnimationController(
-      vsync: this,
       duration: AppTheme.mediumAnimation,
+      vsync: this,
     );
-    
-    _fadeAnimation = Tween<double>(
-      begin: 0.0,
-      end: 1.0,
-    ).animate(CurvedAnimation(
-      parent: _controller,
-      curve: const Interval(0.0, 0.65, curve: Curves.easeInOut),
-    ));
-    
-    _scaleAnimation = Tween<double>(
-      begin: 0.6,
-      end: 1.0,
-    ).animate(CurvedAnimation(
-      parent: _controller,
-      curve: const Interval(0.0, 0.65, curve: Curves.easeOutBack),
-    ));
-    
-    _rotateAnimation = Tween<double>(
-      begin: -0.05,
-      end: 0.0,
-    ).animate(CurvedAnimation(
-      parent: _controller,
-      curve: const Interval(0.0, 0.65, curve: Curves.easeInOut),
-    ));
-    
-    // Start the animation immediately
+    _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(parent: _controller, curve: const Interval(0.0, 0.65, curve: Curves.easeInOut)));
+    _scaleAnimation = Tween<double>(begin: 0.6, end: 1.0).animate(CurvedAnimation(parent: _controller, curve: const Interval(0.0, 0.65, curve: Curves.easeOutBack)));
+    _rotateAnimation = Tween<double>(begin: -0.05, end: 0.0).animate(CurvedAnimation(parent: _controller, curve: const Interval(0.0, 0.65, curve: Curves.easeInOut)));
     _controller.forward();
+    Timer(const Duration(seconds: 5), () {
+      final authStatus = context.read<AuthBloc>().state.status;
+      if (authStatus == AuthStatus.authenticated) {
+        context.go(AppRouter.homePath);
+      } else {
+        context.go(AppRouter.loginPath);
+      }
+    });
   }
 
   @override
