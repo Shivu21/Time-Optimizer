@@ -66,6 +66,12 @@ class _HabitsScreenState extends State<HabitsScreen> {
 
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: colorScheme.onSurface),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
         title: const Text('Habits Tracker'),
         elevation: 0,
         backgroundColor: colorScheme.surface,
